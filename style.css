@@ -1,0 +1,350 @@
+/* CSS Reset with modern best practices */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #4361ee;
+  --primary-light: #4f9efc;
+  --primary-dark: #3a0ca3;
+  --secondary-color: #f72585;
+  --text-color: #2d3748;
+  --text-secondary: #4a5568;
+  --background: #f0f4fb;
+  --card-bg: #ffffff;
+  --success-bg: #f0f7ed;
+  --success-hover: #d8edd0;
+  --error-color: #e53935;
+  --border-radius: 18px;
+  --shadow-sm: 0 6px 14px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.1);
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.4s ease;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background);
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23cdd6e0' fill-opacity='0.2'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3Ccircle cx='0' cy='0' r='2'/%3E%3Ccircle cx='60' cy='60' r='2'/%3E%3Ccircle cx='0' cy='60' r='2'/%3E%3Ccircle cx='60' cy='0' r='2'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 60px 60px;
+  padding: 40px 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  transition: background var(--transition-slow);
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 680px;
+  width: 100%;
+  padding: 40px;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: fadeInUp 0.6s ease;
+  will-change: transform, opacity;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 24px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 16px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary-light), var(--primary-color));
+  border-radius: 3px;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  color: var(--text-secondary);
+}
+
+.upload-section,
+.result-section {
+  margin-bottom: 36px;
+}
+
+.file-input-container {
+  position: relative;
+  margin: 24px 0;
+}
+
+input[type="file"] {
+  width: 100%;
+  padding: 50px 16px;
+  margin: 0;
+  border: 2px dashed var(--primary-light);
+  background-color: rgba(79, 158, 252, 0.08);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-normal);
+  font-size: 1rem;
+  color: var(--primary-dark);
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+}
+
+input[type="file"]::file-selector-button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background var(--transition-fast);
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: var(--primary-dark);
+}
+
+input[type="file"]:hover {
+  background-color: rgba(79, 158, 252, 0.15);
+  transform: scale(1.01);
+  box-shadow: 0 4px 20px rgba(79, 158, 252, 0.2);
+}
+
+.upload-icon {
+  display: block;
+  margin: 0 auto 16px;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(79, 158, 252, 0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-icon svg {
+  width: 28px;
+  height: 28px;
+  fill: var(--primary-color);
+}
+
+button {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: var(--border-radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-normal);
+  box-shadow: 0 6px 14px rgba(79, 158, 252, 0.3);
+  display: block;
+  width: 100%;
+  margin-top: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.7s;
+}
+
+button:hover {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(79, 158, 252, 0.4);
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 158, 252, 0.5);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: var(--success-bg);
+  margin: 16px 0;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  font-size: 1rem;
+  transition: transform var(--transition-fast), box-shadow var(--transition-normal);
+  border-left: 4px solid var(--primary-color);
+  position: relative;
+}
+
+li:hover {
+  background-color: var(--success-hover);
+  transform: translateX(5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.error-message {
+  color: var(--error-color);
+  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  animation: shake 0.3s ease-in-out 2;
+  text-align: center;
+  padding: 12px;
+  background-color: rgba(229, 57, 53, 0.1);
+  border-radius: 8px;
+  border-left: 4px solid var(--error-color);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Loading animation */
+.loading {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.loading-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  margin: 0 5px;
+  animation: dot-pulse 1.5s infinite ease-in-out;
+}
+
+.loading-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dot-pulse {
+  0%, 100% { transform: scale(0.8); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1a202c;
+    --card-bg: #2d3748;
+    --text-color: #e2e8f0;
+    --text-secondary: #cbd5e0;
+    --success-bg: #2c3e50;
+    --success-hover: #34495e;
+  }
+  
+  body {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23333d4d' fill-opacity='0.3'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3Ccircle cx='0' cy='0' r='2'/%3E%3Ccircle cx='60' cy='60' r='2'/%3E%3Ccircle cx='0' cy='60' r='2'/%3E%3Ccircle cx='60' cy='0' r='2'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  input[type="file"] {
+    border-color: var(--primary-color);
+    background-color: rgba(79, 158, 252, 0.1);
+  }
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 25px;
+    border-radius: 15px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+  }
+  
+  button {
+    padding: 14px 22px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    padding: 20px 15px;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  input[type="file"] {
+    padding: 30px 16px;
+  }
+}
